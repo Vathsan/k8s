@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pv-pod-test
+spec:
+  containers:
+    - name: busybox
+      image: busybox:stable
+      command: ['sh', '-c', 'cat /data/data.txt']
+      volumeMounts:
+        - mountPath: /data
+          name: pv-host-data
+  volumes:
+    - name: pv-host-data
+      persistentVolumeClaim:
+        claimName: hostpath-pvc
