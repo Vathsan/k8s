@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: securitycontext-pod
+spec:
+  # securityContext at pod level goes here
+  containers:
+    - name: busybox
+      image: busybox:stable
+      command: ["sh", "-c", "while true; do echo running .....; sleep 5; done"]
+      securityContext:
+        runAsUser: 3000
+        runAsGroup: 4000
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
