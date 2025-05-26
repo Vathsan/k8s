@@ -1,4 +1,4 @@
-# k8s
+# Creating a k8s cluster
 Open relevant ports,
 https://kubernetes.io/docs/reference/networking/ports-and-protocols/
  
@@ -117,3 +117,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 20. On the control plane node, verify all nodes in your cluster are ready. Note that it may take a few moments for all of the nodes to enter the READY state
 
 `kubectl get nodes`
+
+## Install Metric Server
+
+`kubectl apply -f https://raw.githubusercontent.com/ACloudGuru-Resources/content-cka-resources/master/metrics-server-components.yaml`
