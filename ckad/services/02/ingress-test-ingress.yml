@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-test-ingress
+spec:
+  ingressClassName: nginx # tells the cluster which ingress controller to use
+  rules:
+    - host: ingresstest.vathsan
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ingress-test-service
+                port:
+                  number: 80

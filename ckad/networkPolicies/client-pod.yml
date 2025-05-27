@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  namespace: np-test-b
+  labels:
+    app: np-test-client
+spec:
+  containers:
+    - name: busybox
+      image: radial/busyboxplus:curl
+      command: ["sh", "-c", "while true; do curl -m 2 192.168.30.71; sleep 5; done"]
